@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -17,11 +18,14 @@ public class MainActivity extends AppCompatActivity {
         // webview
         webView = (WebView)findViewById(R.id.webview);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://mdpmap.azurewebsites.net/index.html");
+        webView.loadUrl("https://embershan.github.io/mdp_website/");
 
         // enable zoom and pinch controls
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setDisplayZoomControls(false); //hide the zoom buttons
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false); //hide the zoom buttons
+        // must enable javascript for the react website
+        webSettings.setJavaScriptEnabled(true);
 
     }
 
